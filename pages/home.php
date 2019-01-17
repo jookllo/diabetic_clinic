@@ -54,7 +54,7 @@
 			<form action="functions/details.php" method="post" class="form-container">
 				<label>Patient Name:<input type="text" name="pname" size="50" required></input></label><br>
 				
-				<label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+				<label>Phone Number<input type="number" name="phnum"size="39" required/></label><br/>
 				
 				<label>Diabetes Type: 
 					<select name="diabetestype">
