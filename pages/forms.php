@@ -52,7 +52,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "p_ksh";
-//ndio hii forms pages
+//ndio hii forms pages form
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
