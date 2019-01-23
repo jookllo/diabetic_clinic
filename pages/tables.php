@@ -47,7 +47,7 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 <center>
-                    <label><h3>Phone number
+                    <label><h4>Phone number
 					<?php
 $servername = "localhost";
 $username = "root";

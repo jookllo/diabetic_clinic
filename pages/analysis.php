@@ -47,7 +47,7 @@
                     </div>
                     <!-- /.col-lg-12 -->
 					<center>
-					<label><h3>Phone number
+					<label><h4>Phone number
 					<?php
 $servername = "localhost";
 $username = "root";
@@ -78,7 +78,7 @@ if ($result->num_rows > 0) {
 }
 
 echo "";
-?></h3>
+?></h4>
 
 					</label>
 					</center>
