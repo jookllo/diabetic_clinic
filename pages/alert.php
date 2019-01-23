@@ -11,7 +11,7 @@ $result = $db->query($sql);
 
 if ($result-> num_rows > 0){
     while ($row = mysqli_fetch_array($result)){
-        echo "<table style="width:100%">";
+        echo "<table >";
         echo "<tr>";
         echo "<th>phone number</th>";
         echo "<th>visit date</th>";

@@ -65,7 +65,7 @@
 				
 				<label>Date of Birth<input name="dob" type="date" required/></label><br/>
 				
-				<label>Date of Diagnosis<input name="dodiag"type="date" required/></label><br/>
+				<label>Date of Diagnosis<input name="dodiag"type="number" required/></label><br/>
 			<button type="submit" class="btn">Register</a><br/>
    
 			</form>

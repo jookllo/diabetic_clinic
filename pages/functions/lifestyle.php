@@ -4,14 +4,14 @@ session_start();
 		$db = mysqli_connect($servername,$username,$password,$dbname);
 		if(!$db) {
 			die("Connection failed: ".mysqli_connect_error());}
-		$ksnum = $_POST['ksnum'];
+		$phnum = $_POST['phnum'];
 			$smoking = $_POST['smoking'];
 			$alcoholIntake = $_POST['alcohol_intake'];
 
-			if(!$ksnum || !$smoking || !$alcoholIntake){
+			if(!$phnum || !$smoking || !$alcoholIntake){
 				echo "Incomplete form input<br/>"."Fill in completely";
 			}
-		$query = "INSERT INTO lifestyle_changes(ksnum,smoking,alcohol_intake) VALUES ('".$ksnum."', '".$smoking."','".$alcoholIntake."')";	
+		$query = "INSERT INTO lifestyle_changes(phone_num,smoking,alcohol_intake) VALUES ('".$phnum."', '".$smoking."','".$alcoholIntake."')";	
 		$result = $db->query($query);
 			if ($result) {
 				echo $db->affected_rows." Detail inserted into database.";

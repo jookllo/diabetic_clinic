@@ -106,6 +106,8 @@ echo "";
 				<button type="submit">Submit</button>
 			</form>
 			</div>
+
+
 		<button class="accordion">Lifestyle Changes</button>
 			<div class="panel">
 				<form action="functions/lifestyle.php" method="post">
@@ -150,7 +152,7 @@ echo "";
 				<label>Phone Number<input type="text" name="phnum" id="phnum3"></label><br/>
 					<label><b>Date</b> <input type="date" name="ldate"/></label><br/>
 					<label><b>BP</b><input type="text" name="bp" /></label><br/>
-					<label><b>Weight(kg)</b><input type="text" name="weight" size="30" /></label><br/>
+					<label><b>Weight(kg)</b><input type="text" name="weightp" size="30" /></label><br/>
 					<label>BMI<input type="text" name="bmi"></label><br/>
 					<label><b>HBA1c Target</b><input name="hba1c" type="text"/></label><br/>
 					<label><b>Notes(goals,clinical status)</b><input type="text" name="notes" /></label><br/>
