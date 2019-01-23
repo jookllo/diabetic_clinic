@@ -66,7 +66,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-     echo " <select name='pa_id'>";
+     echo " <select name='pa_id' id="dropbox" onChange="copyValue()">";
              while($row = $result->fetch_assoc()){
                 echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
              }
@@ -79,7 +79,13 @@ if ($result->num_rows > 0) {
 
 echo "";
 ?><br/>
-</h3>
+    <script>
+           function copyValue() {
+    var dropboxvalue = document.getElementById('dropbox').value;
+    document.getElementById('phnum').value = dropboxvalue;
+} 
+    </script>
+</h4></label>
 </center>
             
             <button class="accordion">Nephropathy</button>
@@ -181,6 +187,8 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
 </script>
                 </div>
                 <!-- /.row -->
