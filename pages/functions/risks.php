@@ -5,13 +5,13 @@ session_start();
 		if(!$db) {
 			die("Connection failed: ".mysqli_connect_error());}
 			
-			$ksnum = $_POST['ksnum'];
+			$phonenum = $_POST['phone_num'];
 			$risk = implode(',', $_POST['risk']);
 
-			if(!$ksnum || !$risk){
+			if(!$phonenum || !$risk){
 				echo "Incomplete form input<br/>"."Fill in completely";
 			}
-		$query = "INSERT INTO risk_factors(ksnum,risk_factor) VALUES ('".$ksnum."', '".$risk."')";	
+		$query = "INSERT INTO risk_factors(phone_num,risk_factor) VALUES ('".$ksnum."', '".$risk."')";	
 		$result = $db->query($query);
 if ($result) {
 echo $db->affected_rows." Details inserted into database.";

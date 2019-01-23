@@ -46,16 +46,49 @@
                         <h1 class="page-header">Diabetic Complication Screening</h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                
-                
+                <center>
+                    <label><h3>Phone number
+					<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "patient_details";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT phone_num FROM patient_details";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+     echo " <select name='pa_id'>";
+             while($row = $result->fetch_assoc()){
+                echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
+             }
+             //show ksnum list as options
+             echo " </select>";
+
+} else {
+    echo "0 results<br/>";
+}
+
+echo "";
+?><br/>
+</h3>
+</center>
             
             <button class="accordion">Nephropathy</button>
             <div class="panel">     
             <form action="functions/oneof.php" method="post" class="form-container">
-                <label>Date<input type="date" name="ndate"/></label><br/>
-                <label>ACR<input type="text" name="acr"/></label><br/>
-                <label>eGFR<input type="text" name="egfr"></label><br/>
-                <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+                <label>Date<input type="date" name="ndate"  required/></label><br/>
+                <label>ACR<input type="text" name="acr" required/></label><br/>
+                <label>eGFR<input type="text" name="egfr" required></label><br/>
+                <label>Phone Number<input type="text" name="phnum" required/></label><br/>
                 <button type="submit" >Submit</button>
             </form>
             </div>
@@ -66,9 +99,9 @@
                 <p>Check feet for lesions and
                 sensation(10g monofilament or 128Hz
                 tuning fork)Check for Pain, ED, GI symptoms</p>
-                <label>Date<input type="date" name="neudate"></label><br/>
-                <label>Findings<input type="text" name="finds" size="30"></label><br/>
-                <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+                <label>Date<input type="date" name="neudate" required></label><br/>
+                <label>Findings<input type="text" name="finds" size="30" required></label><br/>
+                <label>Phone Number<input type="text" name="phnum" required/></label><br/>
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -78,11 +111,11 @@
             <div class="panel">     
             <form action="functions/threeof.php" method="post" class="form-container">
                 <h2>Eye Exam:</h2>
-               <label>Date<input type="date" name="t_date"></label><br/>
-                <label>Findings<input type="text" name="find" size="30"/></label><br/>
-                <label>Plan<input type="text" name="plan" size="30"></label><br/>
-                <label>Ophthalmologist:<input type="text" name="ophth"></label><br/>
-                <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+               <label>Date<input type="date" name="t_date" required></label><br/>
+                <label>Findings<input type="text" name="find" size="30" required/></label><br/>
+                <label>Plan<input type="text" name="plan" size="30" required></label><br/>
+                <label>Ophthalmologist:<input type="text" name="ophth" required></label><br/>
+                <label>Phone Number<input type="text" name="phnum" required/></label><br/>
                 <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -107,7 +140,7 @@
                     <option value="No">No</option>
                     </select><br/>
              </label><br/>
-            <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+            <label>Phone Number<input type="text" name="phnum" required/></label><br/>
             <button type="submit">Submit</button>
             </form>
         </div>
@@ -115,9 +148,9 @@
          <button class="accordion">Lipid Targets:</button>
             <div class="panel">     
             <form action="functions/fiveof.php" method="post" class="form-container">
-                <label>Date<input type="date" name="l_date"/></label><br/>
-                <label>Lipid Levels<input type="text" name="lipids" size="30"/></label><br/>
-                <label>Plans<input type="text" name="plans"/></label><br/>
+                <label>Date<input type="date" name="l_date" required/></label><br/>
+                <label>Lipid Levels<input type="text" name="lipids" size="30" required/></label><br/>
+                <label>Plans<input type="text" name="plans" required/></label><br/>
                 <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
             <button type="submit">Submit</button>
         </form>
@@ -126,9 +159,9 @@
       <button class="accordion">CAD assessment</button>
             <div class="panel">     
             <form action="functions/sixof.php" method="post" class="form-container">
-                <label>ECG<input type="text" name="ecg" size="30"/></label><br/>
-                <label>Stress ECG<input type="text" name="secg" size="30"/></label><br/>
-                <label>Other<input type="text" name="other" size="30"/></label><br/>
+                <label>ECG<input type="text" name="ecg" size="30" required/></label><br/>
+                <label>Stress ECG<input type="text" name="secg" size="30" required/></label><br/>
+                <label>Other<input type="text" name="other" size="30" required/></label><br/>
                 <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
                 <button type="submit">Submit</button>
             </form>

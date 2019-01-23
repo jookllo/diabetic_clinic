@@ -6,17 +6,17 @@ session_start();
 			die("Connection failed: ".mysqli_connect_error());}
 			
 			$name = $_POST['pname'];
-			$ksnum = $_POST['ksnum'];
+			$phnum = $_POST['phnum'];
 			$diabtype = $_POST['diabetestype'];
 			$dob = $_POST['dob'];
 			$dodiag = $_POST['dodiag'];
 			
-			if(!$name||!$ksnum||!$diabtype||!$dob||!$dodiag){
+			if(!$name||!$phnum||!$diabtype||!$dob||!$dodiag){
 				echo "You have not filled in every form.<br />". "Go back and fill it in Correctly";
 			} 
 	
-	$query = "INSERT INTO patient_details(patient_name,ksnum,diabetestype,dob,dodiagnosis) VALUES
-('".$name."', '".$ksnum."', '".$diabtype."', '".$dob."','".$dodiag."')";
+	$query = "INSERT INTO patient_details(phone_num,patient_num,diabetes_type,dob,dodiagnosis) VALUES
+('".$phnum."', '".$name."', '".$diabtype."', '".$dob."','".$dodiag."')";
 $result = $db->query($query);
 if ($result) {
 echo $db->affected_rows." Details inserted into database.";

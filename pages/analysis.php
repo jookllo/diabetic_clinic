@@ -46,12 +46,47 @@
                         <h1 class="page-header">Patient Analysis Setup</h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                    
+					<center>
+					<label><h3>Phone number
+					<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "patient_details";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT phone_num FROM patient_details";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+     echo " <select name='pa_id'>";
+             while($row = $result->fetch_assoc()){
+                echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
+             }
+             //show ksnum list as options
+             echo " </select>";
+
+} else {
+    echo "0 results<br/>";
+}
+
+echo "";
+?></h3>
+
+					</label>
+					</center>
 			
 				  <button class="accordion">Risk Factors, Comorbidities</button>
 			<div class="panel">
 				<form action="functions/risks.php" method="post">
-				<label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+				<label>Phone Number<input type="text" name="phnum"></label><br/>
 				<label><input type="checkbox" name="risk[]" value="Hypertension">Hypertension</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Dyslipidaemia"/>Dyslipidaemia</label><br/>
 				<label><input type="checkbox" name="risk[]" value="CKD"/>CKD</label><br/>
@@ -64,8 +99,9 @@
 		<button class="accordion">Lifestyle Changes</button>
 			<div class="panel">
 				<form action="functions/lifestyle.php" method="post">
-					<label>KS Number<input type="number" name="ksnum"></label><br/>
+				<label>Phone Number<input type="text" name="phnum"></label><br/>
 					<label>Smoking
+						
 					<select name="smoking">
 						<option value="Yes">Yes</option>
 						<option value="No">No</option>
@@ -80,7 +116,7 @@
 		<button class="accordion">Self Management</button>
 			<div class="panel">
 				<form action="functions/management.php" method="post">
-					<label>KS Number<input type="number" name="ksnum"></label><br/>
+				<label>Phone Number<input type="text" name="phnum"></label><br/>
 					<label>Patient Goals<input type="text" name="pgoals" size="35"/></label><br/>
 				<label>Height<input type="text" name="height"size="30"/></label><br/>
 				<label>Weight Target<input type="text"  name="w_target" size="30"/></label><br/>
@@ -101,7 +137,7 @@
 		<button class="accordion">Visits (every 3 months)</button>
 			<div class="panel">
 				<form action="functions/visits.php" method="post">
-					<label>KS Number<input type="number" name="ksnum"/></label><br/>
+				<label>Phone Number<input type="text" name="phnum"></label><br/>
 					<label><b>Date</b> <input type="date" name="ldate"/></label><br/>
 					<label><b>BP</b><input type="text" name="bp" /></label><br/>
 					<label><b>Weight(kg)</b><input type="text" name="weight" size="30" /></label><br/>
