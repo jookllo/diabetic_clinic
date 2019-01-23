@@ -66,8 +66,10 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-     echo " <select name='pa_id' id="dropbox" onChange="copyValue()">";
+     echo " <select name='pa_id'  id='dropbox' onchange='copyValue()'>";
+     echo"<option></option>"; 
              while($row = $result->fetch_assoc()){
+               
                 echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
              }
              //show ksnum list as options
@@ -83,7 +85,12 @@ echo "";
            function copyValue() {
     var dropboxvalue = document.getElementById('dropbox').value;
     document.getElementById('phnum').value = dropboxvalue;
-} 
+    document.getElementById('phnum1').value = dropboxvalue;
+    document.getElementById('phnum2').value = dropboxvalue;
+    document.getElementById('phnum3').value = dropboxvalue;
+    document.getElementById('phnum4').value = dropboxvalue;
+    document.getElementById('phnum5').value = dropboxvalue;
+    } 
     </script>
 </h4></label>
 </center>
@@ -94,7 +101,7 @@ echo "";
                 <label>Date<input type="date" name="ndate"  required/></label><br/>
                 <label>ACR<input type="text" name="acr" required/></label><br/>
                 <label>eGFR<input type="text" name="egfr" required></label><br/>
-                <label>Phone Number<input type="text" name="phnum" required/></label><br/>
+                <label>Phone Number<input type="text" name="phnum" id="phnum" required/></label><br/>
                 <button type="submit" >Submit</button>
             </form>
             </div>
@@ -107,7 +114,7 @@ echo "";
                 tuning fork)Check for Pain, ED, GI symptoms</p>
                 <label>Date<input type="date" name="neudate" required></label><br/>
                 <label>Findings<input type="text" name="finds" size="30" required></label><br/>
-                <label>Phone Number<input type="text" name="phnum" required/></label><br/>
+                <label>Phone Number<input type="text" name="phnum" id="phnum1" required/></label><br/>
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -121,7 +128,7 @@ echo "";
                 <label>Findings<input type="text" name="find" size="30" required/></label><br/>
                 <label>Plan<input type="text" name="plan" size="30" required></label><br/>
                 <label>Ophthalmologist:<input type="text" name="ophth" required></label><br/>
-                <label>Phone Number<input type="text" name="phnum" required/></label><br/>
+                <label>Phone Number<input type="text" name="phnum" id="phnum2" required/></label><br/>
                 <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -146,7 +153,7 @@ echo "";
                     <option value="No">No</option>
                     </select><br/>
              </label><br/>
-            <label>Phone Number<input type="text" name="phnum" required/></label><br/>
+            <label>Phone Number<input type="text" name="phnum" id="phnum3" required/></label><br/>
             <button type="submit">Submit</button>
             </form>
         </div>
@@ -157,7 +164,7 @@ echo "";
                 <label>Date<input type="date" name="l_date" required/></label><br/>
                 <label>Lipid Levels<input type="text" name="lipids" size="30" required/></label><br/>
                 <label>Plans<input type="text" name="plans" required/></label><br/>
-                <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+                <label>Phone Number<input type="text" name="phnum" id="phnum4" required/></label><br/>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -168,7 +175,7 @@ echo "";
                 <label>ECG<input type="text" name="ecg" size="30" required/></label><br/>
                 <label>Stress ECG<input type="text" name="secg" size="30" required/></label><br/>
                 <label>Other<input type="text" name="other" size="30" required/></label><br/>
-                <label>KS Number<input type="number" name="ksnum"size="39" required/></label><br/>
+               <label>Phone Number<input type="text" name="phnum" id="phnum5" required/></label><br/>
                 <button type="submit">Submit</button>
             </form>
         </div>
