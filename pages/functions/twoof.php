@@ -7,13 +7,13 @@ session_start();
 		
 		$date = $_POST['neudate'];
 		$finds = $_POST['finds'];
-		$ksnum = $_POST['ksnum'];
+		$phnum = $_POST['phnum'];
 
-		if(!$date||!$finds||!$ksnum){
+		if(!$date||!$finds||!$phnum){
 			echo "Incomplete form input<br/>"."Fill in completely";
 		}
 
-		$query = "INSERT INTO Neuropathy(find_date,finds,ksnum) VALUES('".$date."','".$finds."','".$ksnum."')";
+		$query = "INSERT INTO neuropathy(find_date,finds,phone_num) VALUES('".$date."','".$finds."','".$phnum."')";
 
 		
 		$result = $db->query($query);

@@ -8,13 +8,14 @@ session_start();
 			$date = $_POST['ndate'];
 			$acr = $_POST['acr'];
 			$egfr = $_POST['egfr'];
-			$ksnum = $_POST['ksnum'];
+			$phnum = $_POST['phnum'];
 
-			if(!$date||!$acr||!$egfr||!$ksnum){
+			if(!$date||!$acr||!$egfr||!$phnum){
 				echo "Incomplete form input<br/>"."Fill in completely";
 			}
 
-			$query = "INSERT INTO nephropathy(ksnum,ndate,acr,egfr) VALUES ('".$ksnum."','".$date."','".$acr."','".$egfr."')";
+			$query = "INSERT INTO nephropathy(phone_num,ndate,acr,egfr)
+			 VALUES ('".$phnum."','".$date."','".$acr."','".$egfr."')";
 
 			$result = $db->query($query);
 if ($result) {

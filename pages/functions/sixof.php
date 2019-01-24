@@ -8,13 +8,13 @@ session_start();
 			$ecg = $_POST['ecg'];
 			$secg = $_POST['secg'];
 			$other = $_POST['other'];
-			$ksnum = $_POST['ksnum'];
+			$phnum = $_POST['phnum'];
 
-			if(!$ecg||!$secg||!$other||!$ksnum){
+			if(!$ecg||!$secg||!$other||!$phnum){
 				echo "Incomplete form input<br/>"."Fill in completely";
 			}
 
-			$query = "INSERT INTO cad(ksnum,ecg,secg,other)VALUES ('".$ksnum."','".$ecg."','".$secg."','".$other."')";
+			$query = "INSERT INTO cad(phone_num,ecg,secg,other)VALUES ('".$phnum."','".$ecg."','".$secg."','".$other."')";
 			$result = $db->query($query);
 		if ($result) {
 echo $db->affected_rows." Details inserted into database.";
