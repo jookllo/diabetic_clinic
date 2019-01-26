@@ -52,7 +52,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "patient_details";
+$dbname = "pdets";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -91,9 +91,12 @@ echo "";
     document.getElementById('phnum4').value = dropboxvalue;
     document.getElementById('phnum5').value = dropboxvalue;
     } 
-    </script>
+    
+
+</script>
 </h4></label>
 </center>
+
             
             <button class="accordion">Nephropathy</button>
             <div class="panel">     

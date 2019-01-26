@@ -6,7 +6,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "patient_details";
+$dbname = "pdets";
 
 $id = filter_input(INPUT_POST,'pa_id');
 

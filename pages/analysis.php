@@ -52,7 +52,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "patient_details";
+$dbname = "pdets";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -102,7 +102,7 @@ echo "";
 				<label><input type="checkbox" name="risk[]" value="CKD"/>CKD</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Foot disease"/>Foot disease</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Coronary Artery Disease"/>Coronary Artery Disease</label><br/>
-				<label><input type="checkbox" name="risk" value="Erectile dysfunction"/>Erectile Dysfunction</label><br/>
+				<label><input type="checkbox" name="risk[]" value="Erectile dysfunction"/>Erectile Dysfunction</label><br/>
 				<button type="submit">Submit</button>
 			</form>
 			</div>
@@ -128,7 +128,7 @@ echo "";
 		<button class="accordion">Self Management</button>
 			<div class="panel">
 				<form action="functions/management.php" method="post">
-				<label>Phone Number<input type="text" name="phnum" id="phnum2"></label><br/>
+				<label>Phone Number<input type="text" name="phnum" id="phnum2"/></label><br/>
 					<label>Patient Goals<input type="text" name="pgoals" size="35"/></label><br/>
 				<label>Height<input type="text" name="height"size="30"/></label><br/>
 				<label>Weight Target<input type="text"  name="w_target" size="30"/></label><br/>
@@ -149,15 +149,25 @@ echo "";
 		<button class="accordion">Visits (every 3 months)</button>
 			<div class="panel">
 				<form action="functions/visits.php" method="post">
-				<label>Phone Number<input type="text" name="phnum" id="phnum3"></label><br/>
+
+					<label><b>Phone Number</b><input type="text" name="phnum" id="phnum3"/></label><br/>
+
 					<label><b>Date</b> <input type="date" name="ldate"/></label><br/>
+					
 					<label><b>BP</b><input type="text" name="bp" /></label><br/>
+					
 					<label><b>Weight(kg)</b><input type="text" name="weightp" size="30" /></label><br/>
-					<label>BMI<input type="text" name="bmi"></label><br/>
-					<label><b>HBA1c Target</b><input name="hba1c" type="text"/></label><br/>
+					
+					<label><b>BMI</b><input type="text" name="bmi"/></label><br/>
+					
+					<label><b>HBA1c Target</b><input type="text" name="hba1c"/></label><br/>
+					
 					<label><b>Notes(goals,clinical status)</b><input type="text" name="notes" /></label><br/>
+					
 					<label><b>Hypo-glycaemia</b><input type="text" name="hpgl" /></label><br/>
-					<label><b>DM therapy/CV agents</b><input type="text" name="dmtherapy" /></label>
+					
+					<label><b>DM therapy/CV agents</b><input type="text" name="dmtherapy" /></label><br/>
+					
 					<button type="submit">Submit</button>				
 				</form>			
 			</div>	

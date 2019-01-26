@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2019 at 10:06 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Jan 26, 2019 at 01:27 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `diabetes`
+-- Database: `pdets`
 --
 
 -- --------------------------------------------------------
@@ -36,6 +36,13 @@ CREATE TABLE `cad` (
   `other` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cad`
+--
+
+INSERT INTO `cad` (`cad_id`, `phone_num`, `ecg`, `secg`, `other`) VALUES
+(1, '0723758190', 'asczxcxzv', 'asdasdasdas', 'asdascxzfaS');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +56,14 @@ CREATE TABLE `lifestyle_changes` (
   `alcohol_intake` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `lifestyle_changes`
+--
+
+INSERT INTO `lifestyle_changes` (`life_id`, `phone_num`, `smoking`, `alcohol_intake`) VALUES
+(1, '0723758190', 'Yes', '1435'),
+(2, '12345672', 'Yes', '146');
+
 -- --------------------------------------------------------
 
 --
@@ -58,9 +73,41 @@ CREATE TABLE `lifestyle_changes` (
 CREATE TABLE `lipid_target` (
   `target_id` int(11) NOT NULL,
   `phone_num` varchar(10) NOT NULL,
+  `lipid_level` varchar(80) NOT NULL,
   `plan` varchar(255) NOT NULL,
   `ldate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lipid_target`
+--
+
+INSERT INTO `lipid_target` (`target_id`, `phone_num`, `lipid_level`, `plan`, `ldate`) VALUES
+(1, '0723758190', 'asdsfsfsa', 'sadsadasc', '2019-01-15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nephropathy`
+--
+
+CREATE TABLE `nephropathy` (
+  `nid` int(11) NOT NULL,
+  `phone_num` varchar(10) NOT NULL,
+  `acr` varchar(255) NOT NULL,
+  `egfr` varchar(255) NOT NULL,
+  `ndate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nephropathy`
+--
+
+INSERT INTO `nephropathy` (`nid`, `phone_num`, `acr`, `egfr`, `ndate`) VALUES
+(1, '0723758190', 'fasfas', 'afsfas', '2019-01-08'),
+(2, '0723758190', 'fasfas', 'afsfasasdas', '2019-01-08'),
+(3, '0723758190', 'fasfas', 'afsfasasdas', '2019-01-08'),
+(4, '0723758190', 'fasfas', 'afsfasasdas', '2019-01-08');
 
 -- --------------------------------------------------------
 
@@ -75,6 +122,14 @@ CREATE TABLE `neuropathy` (
   `finds` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `neuropathy`
+--
+
+INSERT INTO `neuropathy` (`neuro_id`, `phone_num`, `find_date`, `finds`) VALUES
+(1, '0723758190', '2019-01-15', 'asfasfsafas'),
+(2, '0723758190', '2019-01-15', 'asfasfsafasasda');
+
 -- --------------------------------------------------------
 
 --
@@ -82,6 +137,7 @@ CREATE TABLE `neuropathy` (
 --
 
 CREATE TABLE `patient_details` (
+  `p_id` int(11) NOT NULL,
   `phone_num` varchar(10) NOT NULL,
   `patient_num` varchar(255) NOT NULL,
   `diabetes_type` varchar(255) NOT NULL,
@@ -93,10 +149,14 @@ CREATE TABLE `patient_details` (
 -- Dumping data for table `patient_details`
 --
 
-INSERT INTO `patient_details` (`phone_num`, `patient_num`, `diabetes_type`, `dob`, `dodiagnosis`) VALUES
-('0700000000', '134', 'sdgsrg', '2019-01-01', '2019-01-09'),
-('0723758190', 'djfijvb', 'efjvnjfdk', '2019-01-02', '2019-01-02'),
-('0724748913', 'sdfb', 'sgdbh', '2019-01-10', '2019-01-07');
+INSERT INTO `patient_details` (`p_id`, `phone_num`, `patient_num`, `diabetes_type`, `dob`, `dodiagnosis`) VALUES
+(1, '0700000000', '134', 'sdgsrg', '2019-01-01', '2019-01-09'),
+(2, '0723758190', 'djfijvb', 'efjvnjfdk', '2019-01-02', '2019-01-02'),
+(3, '0724748913', 'sdfb', 'sgdbh', '2019-01-10', '2019-01-07'),
+(4, '12345672', 'qertyui', 'Type 1', '2000-02-09', '0000-00-00'),
+(5, '145678445', 'qcvbcxb', 'Type 1', '2019-01-13', '0000-00-00'),
+(6, '1234567822', 'DSGNFJHBKJNLK', 'Type 1', '2019-01-06', '0000-00-00'),
+(7, '1345678', 'qwertyui', 'Type 1', '2019-01-06', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -113,6 +173,14 @@ CREATE TABLE `retinopathy` (
   `e_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `retinopathy`
+--
+
+INSERT INTO `retinopathy` (`ret_id`, `phone_num`, `report`, `plan`, `ophthamologist`, `e_date`) VALUES
+(1, '0723758190', 'asfasfsa', 'dasdasfax', 'cxzffawq', '2019-01-08'),
+(2, '0723758190', 'asfasfsa', 'dasdasfax', 'cxzffawqasdas', '2019-01-08');
+
 -- --------------------------------------------------------
 
 --
@@ -124,6 +192,17 @@ CREATE TABLE `risk_factors` (
   `phone_num` varchar(10) NOT NULL,
   `risk_factor` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `risk_factors`
+--
+
+INSERT INTO `risk_factors` (`risk_id`, `phone_num`, `risk_factor`) VALUES
+(1, '0723758190', 'Dyslipidaemia,CKD,Foot disease'),
+(2, '0724748913', 'Dyslipidaemia,CKD,Foot disease'),
+(3, '0723758190', 'Hypertension,Dyslipidaemia,CKD,Foot disease'),
+(4, '0723758190', 'Hypertension,Dyslipidaemia,CKD,Foot disease'),
+(5, '12345672', 'Hypertension,Dyslipidaemia,CKD,Coronary Artery Disease');
 
 -- --------------------------------------------------------
 
@@ -143,6 +222,15 @@ CREATE TABLE `self_management` (
   `dodiscussion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `self_management`
+--
+
+INSERT INTO `self_management` (`man_id`, `phone_num`, `patient_goals`, `height`, `weight_target`, `bmi_target`, `weight_management`, `nutrition_education`, `dodiscussion`) VALUES
+(1, '0700000000', 'qwerty', 'werty', 'wertyu', 'wertyu', 'Yes', 'Yes', '2019-01-07'),
+(2, '0723758190', 'cfnchgnbv', 'dghbcjhmbv', 'rgdfhcvjmjfg', 'tfhgnmnb', 'No', 'Yes', '2019-01-15'),
+(3, '12345672', 'fasfas', '1.24m', 'asfsa', 'asfas', 'Yes', 'Yes', '2019-01-16');
+
 -- --------------------------------------------------------
 
 --
@@ -156,6 +244,13 @@ CREATE TABLE `vascular_protection` (
   `opt2` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `vascular_protection`
+--
+
+INSERT INTO `vascular_protection` (`vascular_id`, `phone_num`, `opt1`, `opt2`) VALUES
+(1, '0723758190', 'Yes', 'No');
+
 -- --------------------------------------------------------
 
 --
@@ -166,7 +261,7 @@ CREATE TABLE `visits` (
   `visit_id` int(11) NOT NULL,
   `phone_num` varchar(10) NOT NULL,
   `bp` varchar(255) NOT NULL,
-  `weight` varchar(255) NOT NULL,
+  `weight_p` varchar(255) NOT NULL,
   `bmi` varchar(255) NOT NULL,
   `hba1c` varchar(255) NOT NULL,
   `notes` varchar(255) NOT NULL,
@@ -174,6 +269,14 @@ CREATE TABLE `visits` (
   `dm_therapy` varchar(255) NOT NULL,
   `visit_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `visits`
+--
+
+INSERT INTO `visits` (`visit_id`, `phone_num`, `bp`, `weight_p`, `bmi`, `hba1c`, `notes`, `hypo_gly`, `dm_therapy`, `visit_date`) VALUES
+(1, '12345672', 'sdfghjk', 'fgsfdhgjfkg', 'fdsghfdjgfk', 'fsdgfhjdgkf', 'afgdhsfjdg', 'agdshfdjgf', 'gsdhfdjkf', '2019-01-07'),
+(2, '12345672', 'sdfghjk', 'fgsfdhgjfkg', 'fdsghfdjgfk', 'fsd', 'afgdhsfjdg', 'agdshfdjgf', 'gsdhfdjkf', '2019-01-07');
 
 --
 -- Indexes for dumped tables
@@ -191,14 +294,21 @@ ALTER TABLE `cad`
 --
 ALTER TABLE `lifestyle_changes`
   ADD PRIMARY KEY (`life_id`),
-  ADD UNIQUE KEY `phone_num` (`phone_num`);
+  ADD KEY `phone_num` (`phone_num`);
 
 --
 -- Indexes for table `lipid_target`
 --
 ALTER TABLE `lipid_target`
   ADD PRIMARY KEY (`target_id`),
-  ADD UNIQUE KEY `phone_num` (`phone_num`);
+  ADD KEY `phone_num` (`phone_num`);
+
+--
+-- Indexes for table `nephropathy`
+--
+ALTER TABLE `nephropathy`
+  ADD PRIMARY KEY (`nid`),
+  ADD KEY `phone_num` (`phone_num`);
 
 --
 -- Indexes for table `neuropathy`
@@ -211,7 +321,9 @@ ALTER TABLE `neuropathy`
 -- Indexes for table `patient_details`
 --
 ALTER TABLE `patient_details`
-  ADD PRIMARY KEY (`phone_num`);
+  ADD PRIMARY KEY (`p_id`),
+  ADD UNIQUE KEY `phone_num_2` (`phone_num`),
+  ADD KEY `phone_num` (`phone_num`);
 
 --
 -- Indexes for table `retinopathy`
@@ -225,28 +337,28 @@ ALTER TABLE `retinopathy`
 --
 ALTER TABLE `risk_factors`
   ADD PRIMARY KEY (`risk_id`),
-  ADD UNIQUE KEY `phone_num` (`phone_num`);
+  ADD KEY `phone_num` (`phone_num`);
 
 --
 -- Indexes for table `self_management`
 --
 ALTER TABLE `self_management`
   ADD PRIMARY KEY (`man_id`),
-  ADD UNIQUE KEY `phone_num` (`phone_num`);
+  ADD KEY `phone_num` (`phone_num`);
 
 --
 -- Indexes for table `vascular_protection`
 --
 ALTER TABLE `vascular_protection`
   ADD PRIMARY KEY (`vascular_id`),
-  ADD UNIQUE KEY `phone_num` (`phone_num`);
+  ADD KEY `phone_num` (`phone_num`);
 
 --
 -- Indexes for table `visits`
 --
 ALTER TABLE `visits`
   ADD PRIMARY KEY (`visit_id`),
-  ADD UNIQUE KEY `phone_num` (`phone_num`);
+  ADD KEY `phone_num` (`phone_num`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -256,55 +368,67 @@ ALTER TABLE `visits`
 -- AUTO_INCREMENT for table `cad`
 --
 ALTER TABLE `cad`
-  MODIFY `cad_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lifestyle_changes`
 --
 ALTER TABLE `lifestyle_changes`
-  MODIFY `life_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `life_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `lipid_target`
 --
 ALTER TABLE `lipid_target`
-  MODIFY `target_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `target_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `nephropathy`
+--
+ALTER TABLE `nephropathy`
+  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `neuropathy`
 --
 ALTER TABLE `neuropathy`
-  MODIFY `neuro_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `neuro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `patient_details`
+--
+ALTER TABLE `patient_details`
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `retinopathy`
 --
 ALTER TABLE `retinopathy`
-  MODIFY `ret_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ret_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `risk_factors`
 --
 ALTER TABLE `risk_factors`
-  MODIFY `risk_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `risk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `self_management`
 --
 ALTER TABLE `self_management`
-  MODIFY `man_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `man_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `vascular_protection`
 --
 ALTER TABLE `vascular_protection`
-  MODIFY `vascular_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `vascular_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -329,10 +453,10 @@ ALTER TABLE `lipid_target`
   ADD CONSTRAINT `lipid_target_ibfk_1` FOREIGN KEY (`phone_num`) REFERENCES `patient_details` (`phone_num`);
 
 --
--- Constraints for table `neuropathy`
+-- Constraints for table `nephropathy`
 --
-ALTER TABLE `neuropathy`
-  ADD CONSTRAINT `neuropathy_ibfk_1` FOREIGN KEY (`phone_num`) REFERENCES `patient_details` (`phone_num`);
+ALTER TABLE `nephropathy`
+  ADD CONSTRAINT `nephropathy_ibfk_1` FOREIGN KEY (`phone_num`) REFERENCES `patient_details` (`phone_num`);
 
 --
 -- Constraints for table `retinopathy`
