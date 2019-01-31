@@ -1,10 +1,7 @@
 <?php
 
 	include("conn.php");
-	session_start();
-		$db = mysqli_connect($servername,$username,$password,$dbname);
-		if(!$db) {
-			die("Connection failed: ".mysqli_connect_error());}
+	
 // Create a date time object, which has the value of ~ two years ago
 $twoYearsAgo = new DateTime("2019-01-18 ");
 // Create a date time object, which has the value of ~ now

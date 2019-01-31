@@ -1,9 +1,6 @@
 <?php
 	include("conn.php");
-session_start();
-		$db = mysqli_connect($servername,$username,$password,$dbname);
-		if(!$db) {
-			die("Connection failed: ".mysqli_connect_error());}
+
 			$pgoals = $_POST['pgoals'];
 			$height = $_POST['height'];
 			$weight = $_POST['w_target'];

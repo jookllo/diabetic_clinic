@@ -48,39 +48,8 @@
                     <!-- /.col-lg-12 -->
                 <center>
                     <label><h4>Phone number
-					<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pdets";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT phone_num FROM patient_details";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-     echo " <select name='pa_id'  id='dropbox' onchange='copyValue()'>";
-     echo"<option></option>"; 
-             while($row = $result->fetch_assoc()){
-               
-                echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
-             }
-             //show ksnum list as options
-             echo " </select>";
-
-} else {
-    echo "0 results<br/>";
-}
-
-echo "";
-?><br/>
+					<?php 
+					include "functions/phoneNumberVisible.php";?>
     <script>
            function copyValue() {
     var dropboxvalue = document.getElementById('dropbox').value;
@@ -100,7 +69,7 @@ echo "";
             
             <button class="accordion">Nephropathy</button>
             <div class="panel">     
-            <form action="functions/oneof.php" method="post" class="form-container">
+            <form action="functions/nephropathy.php" method="post" class="form-container">
                 <label>Date<input type="date" name="ndate"  required/></label><br/>
                 <label>ACR<input type="text" name="acr" required/></label><br/>
                 <label>eGFR<input type="text" name="egfr" required></label><br/>
@@ -111,7 +80,7 @@ echo "";
            
             <button class="accordion">Neuropathy</button>
             <div class="panel">     
-            <form action="functions/twoof.php" method="post" class="form-container">
+            <form action="functions/neuropathy.php" method="post" class="form-container">
                 <p>Check feet for lesions and
                 sensation(10g monofilament or 128Hz
                 tuning fork)Check for Pain, ED, GI symptoms</p>
@@ -125,7 +94,7 @@ echo "";
         
         <button class="accordion">Retinopathy</button>
             <div class="panel">     
-            <form action="functions/threeof.php" method="post" class="form-container">
+            <form action="functions/retinopathy.php" method="post" class="form-container">
                 <h2>Eye Exam:</h2>
                <label>Date<input type="date" name="t_date" required></label><br/>
                 <label>Findings<input type="text" name="find" size="30" required/></label><br/>
@@ -139,7 +108,7 @@ echo "";
 
         <button class="accordion">Vascular protection</button>
             <div class="panel">     
-            <form action="functions/fourof.php" method="post" class="form-container">
+            <form action="functions/vascular_protection.php" method="post" class="form-container">
                 
             <label>
                 <p>Statin if > 40yrs or 30yrs with DM > 15yrs or end organ</p>
@@ -163,7 +132,7 @@ echo "";
 
          <button class="accordion">Lipid Targets:</button>
             <div class="panel">     
-            <form action="functions/fiveof.php" method="post" class="form-container">
+            <form action="functions/lipids.php" method="post" class="form-container">
                 <label>Date<input type="date" name="l_date" required/></label><br/>
                 <label>Lipid Levels<input type="text" name="lipids" size="30" required/></label><br/>
                 <label>Plans<input type="text" name="plans" required/></label><br/>
@@ -174,7 +143,7 @@ echo "";
 
       <button class="accordion">CAD assessment</button>
             <div class="panel">     
-            <form action="functions/sixof.php" method="post" class="form-container">
+            <form action="functions/cad.php" method="post" class="form-container">
                 <label>ECG<input type="text" name="ecg" size="30" required/></label><br/>
                 <label>Stress ECG<input type="text" name="secg" size="30" required/></label><br/>
                 <label>Other<input type="text" name="other" size="30" required/></label><br/>

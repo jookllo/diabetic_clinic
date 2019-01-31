@@ -1,10 +1,6 @@
 <?php
 	include("conn.php");
-session_start();
-		$db = mysqli_connect($servername,$username,$password,$dbname);
-		if(!$db) {
-			die("Connection failed: ".mysqli_connect_error());}
-			
+
 			$statin = $_POST['statin'];
 			$statin2 = $_POST['statin2'];
 			$phnum = $_POST['phnum'];

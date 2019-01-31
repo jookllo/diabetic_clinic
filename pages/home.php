@@ -52,20 +52,20 @@
 			<button class="accordion">Patient details</button>
 			<div class="panel">		
 			<form action="functions/details.php" method="post" class="form-container">
-				<label>Patient Name:<input type="text" name="pname" size="50" required></input></label><br>
+				<label>Patient Name:<input class="form-control" type="text" name="pname" size="50" required></input></label><br>
 				
-				<label>Phone Number<input type="number" name="phnum"size="39" required/></label><br/>
+				<label>Phone Number<input class="form-control" type="number" name="phnum" required/></label><br/>
 				
 				<label>Diabetes Type: 
-					<select name="diabetestype">
+					<select name="diabetestype" class="form-control">
 						<option value="Type 1">Type 1</option>
 						<option value="Type 2">Type 2</option>
 					</select>
 				</label><br/>
 				
-				<label>Date of Birth<input name="dob" type="date" required/></label><br/>
+				<label>Date of Birth<input class="form-control" name="dob" type="date"  required/></label><br/>
 				
-				<label>Date of Diagnosis<input name="dodiag"type="number" required/></label><br/>
+				<label>Date of Diagnosis<input class="form-control" name="dodiag"type="number"  min="1900" max="2019" required/></label><br/>
 			<button type="submit" class="btn">Register</a><br/>
    
 			</form>

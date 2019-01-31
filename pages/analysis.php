@@ -48,38 +48,8 @@
                     <!-- /.col-lg-12 -->
 					<center>
 					<label><h4>Phone number
-					<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pdets";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT phone_num FROM patient_details";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-	 echo " <select name='pa_id' id='dropbox' onchange='copyValue()'>";
-	 echo"<option></option>"; 
-             while($row = $result->fetch_assoc()){
-                echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
-             }
-             //show ksnum list as options
-             echo " </select>";
-
-} else {
-    echo "0 results<br/>";
-}
-
-echo "";
-?><br/>
+					<?php 
+					include "functions/phoneNumberVisible.php";?>
  <script>
            function copyValue() {
     var dropboxvalue = document.getElementById('dropbox').value;
@@ -96,14 +66,14 @@ echo "";
 				  <button class="accordion">Risk Factors, Comorbidities</button>
 			<div class="panel">
 				<form action="functions/risks.php" method="post">
-				<label>Phone Number<input type="text" name="phnum" id="phnum"></label><br/>
-				<label><input type="checkbox" name="risk[]" value="Hypertension">Hypertension</label><br/>
+				<label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum"/></label><br/>
+				<label><input  type="checkbox" name="risk[]" value="Hypertension"/>Hypertension</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Dyslipidaemia"/>Dyslipidaemia</label><br/>
 				<label><input type="checkbox" name="risk[]" value="CKD"/>CKD</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Foot disease"/>Foot disease</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Coronary Artery Disease"/>Coronary Artery Disease</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Erectile dysfunction"/>Erectile Dysfunction</label><br/>
-				<button type="submit">Submit</button>
+				<button class="btn" type="submit">Submit</button>
 			</form>
 			</div>
 
@@ -111,38 +81,47 @@ echo "";
 		<button class="accordion">Lifestyle Changes</button>
 			<div class="panel">
 				<form action="functions/lifestyle.php" method="post">
-				<label>Phone Number<input type="text" name="phnum" id="phnum1"></label><br/>
+				<label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum1"/></label><br/>
 					<label>Smoking
 						
-					<select name="smoking">
+					<select class="form-control" name="smoking">
 						<option value="Yes">Yes</option>
 						<option value="No">No</option>
 						<option value="Cessation discussed">Cessation discussed</option>
 					</select>
 					</label><br/>		
-					<label>Alcohol intake<input name="alcohol_intake"type="number"/>Units/Week</label>		
-					<button type="submit">Submit</button>				
+					<label>Alcohol intake(Units/Week)<input class="form-control" name="alcohol_intake"type="number" placeholder="Units/Week"/></label><br/>		
+					<button class="btn" type="submit">Submit</button>				
 				</form>			
 			</div>
 
-		<button class="accordion">Self Management</button>
-			<div class="panel">
+			<button class="accordion">Self Management</button>
+			<div class="panel-body">
 				<form action="functions/management.php" method="post">
-				<label>Phone Number<input type="text" name="phnum" id="phnum2"/></label><br/>
-					<label>Patient Goals<input type="text" name="pgoals" size="35"/></label><br/>
-				<label>Height<input type="text" name="height"size="30"/></label><br/>
-				<label>Weight Target<input type="text"  name="w_target" size="30"/></label><br/>
-				<label>Target BMI<input type="text" name="t_bmi" size=" 30"/></label><br/>
-				<label>Weight Management Discussed<select name="issue_disscussed">
+
+				<label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum2"/></label><br/>
+				
+					<label>Patient Goals<textarea class="form-control" type="text" name="pgoals" rows="6" cols="50"></textarea></label><br/>
+				
+				<label>Height<input class="form-control" type="text" name="height"size="30"/></label><br/>
+				
+				<label>Weight Target<input class="form-control" type="text"  name="w_target" size="30"/></label><br/>
+				
+				<label>Target BMI<input class="form-control" type="text" name="t_bmi" size=" 30"/></label><br/>
+				
+				<label>Weight Management Discussed<select class="form-control" name="issue_disscussed">
 						<option value="Yes">Yes</option>
 						<option value="No">No</option>
 					</select></label><br/>
-					<label>Nutrition education<select name="n_education">
+					
+					<label>Nutrition education<select class="form-control" name="n_education">
 						<option value="Yes">Yes</option>
 						<option value="No">No</option>
 					</select></label><br/>
-					<label>Date:<input name="date"type="date"/></label><br>
-					<button type="submit">Submit</button>				
+					
+					<label>Date:<input class="form-control" name="date"type="date"/></label><br>
+					
+					<button class="btn"type="submit">Submit</button>				
 				</form>			
 			</div>
 		
@@ -150,25 +129,25 @@ echo "";
 			<div class="panel">
 				<form action="functions/visits.php" method="post">
 
-					<label><b>Phone Number</b><input type="text" name="phnum" id="phnum3"/></label><br/>
+					<label><b>Phone Number</b><input class="form-control" type="text" name="phnum" id="phnum3"/></label><br/>
 
-					<label><b>Date</b> <input type="date" name="ldate"/></label><br/>
+					<label><b>Date</b> <input class="form-control" type="date" name="ldate"/></label><br/>
 					
-					<label><b>BP</b><input type="text" name="bp" /></label><br/>
+					<label><b>BP</b><input class="form-control" type="text" name="bp" /></label><br/>
 					
-					<label><b>Weight(kg)</b><input type="text" name="weightp" size="30" /></label><br/>
+					<label><b>Weight(kg)</b><input class="form-control" type="text" name="weightp" size="30" /></label><br/>
 					
-					<label><b>BMI</b><input type="text" name="bmi"/></label><br/>
+					<label><b>BMI</b><input class="form-control" type="text" name="bmi"/></label><br/>
 					
-					<label><b>HBA1c Target</b><input type="text" name="hba1c"/></label><br/>
+					<label><b>HBA1c Target</b><input class="form-control" type="text" name="hba1c"/></label><br/>
 					
-					<label><b>Notes(goals,clinical status)</b><input type="text" name="notes" /></label><br/>
+					<label><b>Notes(goals,clinical status)</b><textarea class="form-control" type="text" name="notes" rows="6" cols="50"></textarea></label><br/>
 					
-					<label><b>Hypo-glycaemia</b><input type="text" name="hpgl" /></label><br/>
+					<label><b>Hypo-glycaemia</b><input class="form-control" type="text" name="hpgl" /></label><br/>
 					
-					<label><b>DM therapy/CV agents</b><input type="text" name="dmtherapy" /></label><br/>
+					<label><b>DM therapy/CV agents</b><input class="form-control" type="text" name="dmtherapy" /></label><br/>
 					
-					<button type="submit">Submit</button>				
+					<button class="btn" type="submit">Submit</button>				
 				</form>			
 			</div>	
 				
