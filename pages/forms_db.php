@@ -1,20 +1,15 @@
 
 <?php
 
-	
+	require "functions/conn.php";
  
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pdets";
 
 $id = filter_input(INPUT_POST,'pa_id');
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
 }
 	
 $sql = "SELECT * FROM patient_details
@@ -50,11 +45,11 @@ $sql = "SELECT * FROM patient_details
 		ON patient_details.phone_num = vascular_protection.phone_num
          AND vascular_protection.phone_num = '$id'";
 		
-$result = $conn->query($sql);
+$result = $db->query($sql);
 
 if ($result->num_rows > 0) {
     
-             while($row = $result->fetch_assoc()){
+             while($row = $result->mysqli_fetch_assoc()){
                echo "patient exists";
              }
              

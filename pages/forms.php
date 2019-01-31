@@ -2,7 +2,7 @@
         <html lang="en">
 
         <head>
-
+            
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,28 +48,24 @@
                             <h3>Select Patient ID:</h3>
                             <form method="get" action="forms_db.php">
              <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "patient_details";
-
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
+                   require "functions/conn.php";
+                    
                     // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
+                    if ($db->connect_error) {
+                        die("Connection failed: " . $db->connect_error);
                     }
 
                     $sql = "SELECT phone_num FROM patient_details";
-                    $result = $conn->query($sql);
+                    $result = $db->query($sql);
 
                     if ($result->num_rows > 0) {
                         // output data of each row
                         echo " <select name='pa_id'>";
                                 while($row = $result->fetch_assoc()){
                                     echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
+                                    
                                 }
-                                //show ksnum list as options
+                                //show phone number list as options
                                 echo " </select>";
 
                     } else {
