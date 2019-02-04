@@ -46,7 +46,7 @@
                         <h1 class="page-header">Add or Edit Patient Deatils</h1>
                     </div>
                     <!-- /.col-lg-12 -->
-
+               
                     <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -55,8 +55,54 @@
                                     </button>
                                 </span>
                             </div>
+                            <br/>
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Diabetes Type</th>
+                                        <th>Date of Birth</th>
+                                        <th>Date of Diagnosis</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <th><input class='form-control' type='text' name='pname' value='<?php echo $pname?>'  placeholder='Patient name'required></th>
+                                    <th><input  class='form-control' name='diabetestype' value='<?php echo $diabetes_type?>' placeholder='Diabetes type'required></th>
+                                    <th><input  class='form-control' type='date' name='dob' value='<?php echo $dob?>' placeholder='Date of Birth'required></th>
+                                    <th><input class='form-control' type='text' value="<?php echo $dodiagnosis?>" name='dodiag' size='50' placeholder='Date of Diagnosis'required></th>
+                                    <th><a href='functions/update.php?edit=<?php echo $row[p_id];?>' class='btn btn-primary'>Update</a>
+                                </tr>
+
+                            <?php 
+                                include"functions/conn.php";
+                                $result = mysqli_query($db,"select * from patient_details");                          
+                                while($row= mysqli_fetch_array($result)){
+                                   echo" <tbody>";
+                                    
+                                        echo"<tr>";
+                                            echo"<th>".$row['patient_num']."</th>";
+                                            echo"<th>".$row['diabetes_type']."</th>";
+                                            echo"<th>".$row['dob']."</th>";
+                                            echo"<th>".$row['dodiagnosis']."</th>";
+                                            echo"<th><a href='functions/update.php?edit=<?php echo $row[p_id];?>' class='btn btn-primary'>Edit</a>";
+
+                                        echo"</tr>";
+                                    echo"</tbody>";
+                                    
+                                 }  
+                                 
+                                    ?> 
+                                 </table>
+                                            
                 </div>
                 <!-- /.row -->
+                <?php
+                                 echo"";
+                                 echo"";
+                                 echo"";                                
+                                 echo"";?>
+                                 
             </div>
             <!-- /.container-fluid -->
         </div>

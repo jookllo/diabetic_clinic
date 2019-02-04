@@ -47,41 +47,21 @@
                             </div>
                             <h3>Select Patient ID:</h3>
                             <form method="get" action="forms_db.php">
-             <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "pdets";
-
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    $sql = "SELECT phone_num FROM patient_details";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        echo " <select name='pa_id'>";
-                                while($row = $result->fetch_assoc()){
-                                    echo "<option value='".$row[phone_num]."'>".$row['phone_num']."</option>";
-                                }
-                                //show ksnum list as options
-                                echo " </select>";
-
-                    } else {
-                        echo "0 results<br/>";
-                    }
-
-                    echo "";
-                ?>
+                            <?php 
+					include "functions/phoneNumberVisible.php";?>
             <br/>
                         <button type='submit'>Submit</button>
                                 
                                         </form>
+
+                                        <?php
+                                                require('fpdf/fpdf.php');
+                                                $pdf = new FPDF();
+                                                $pdf->AddPage();
+                                                $pdf->SetFont('Arial','B',16);
+                                                $pdf->Cell(40,10,'Hello World!');
+                                                $pdf->Output();
+                                                ?>
                                 <!-- /.col-lg-12 -->
                             </div>
                             <!-- /.row -->

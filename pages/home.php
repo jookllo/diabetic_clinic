@@ -66,7 +66,7 @@
 				<label>Date of Birth<input class="form-control" name="dob" type="date"  required/></label><br/>
 				
 				<label>Date of Diagnosis<input class="form-control" name="dodiag"type="number"  min="1900" max="2019" required/></label><br/>
-			<button type="submit" class="btn">Register</a><br/>
+			<button type="submit" class="btn" name="save">Register</a><br/>
    
 			</form>
 			</div>

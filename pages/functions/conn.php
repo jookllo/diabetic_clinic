@@ -9,5 +9,5 @@
 			echo 'Error: Could not connect to database. please try again';
 			exit;
 					}
-					session_start();
+				
 		?>
