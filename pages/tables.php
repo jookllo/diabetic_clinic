@@ -74,7 +74,7 @@
                 <label>ACR<input class="form-control" type="text" name="acr" required/></label><br/>
                 <label>eGFR<input type="text" class="form-control" name="egfr" required></label><br/>
                 <label>Phone Number<input type="text" class="form-control" name="phnum" id="phnum" required/></label><br/>
-                <button class="btn" type="submit" >Submit</button>
+                <button class="btn" name="add_nephropathy" type="submit" >Submit</button>
             </form>
             </div>
            
@@ -87,7 +87,7 @@
                 <label>Date<input class="form-control" type="date" name="neudate" required></label><br/>
                 <label>Findings<input class="form-control" type="text" name="finds" size="30" required></label><br/>
                 <label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum1" required/></label><br/>
-                <button class="btn" type="submit">Submit</button>
+                <button class="btn" name="add_neuropathy" type="submit">Submit</button>
             </form>
         </div>
 
@@ -101,7 +101,7 @@
                 <label>Plan<input type="text" class="form-control" name="plan" size="30" required></label><br/>
                 <label>Ophthalmologist:<input type="text" class="form-control" name="ophth" required></label><br/>
                 <label>Phone Number<input type="text" class="form-control" name="phnum" id="phnum2" required/></label><br/>
-                <button class="btn" type="submit">Submit</button>
+                <button class="btn" name="add_retinopathy" type="submit">Submit</button>
                     </form>
                 </div>
 
@@ -126,7 +126,7 @@
                     </select><br/>
              </label><br/>
             <label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum3" required/></label><br/>
-            <button class="btn" type="submit">Submit</button>
+            <button class="btn" name="add_vp" type="submit">Submit</button>
             </form>
         </div>
 
@@ -137,7 +137,7 @@
                 <label>Lipid Levels<input type="text" class="form-control" name="lipids" size="30" required/></label><br/>
                 <label>Plans<input type="text" name="plans" class="form-control" required/></label><br/>
                 <label>Phone Number<input type="text" class="form-control" name="phnum" id="phnum4" required/></label><br/>
-            <button class="btn" type="submit">Submit</button>
+            <button class="btn" name="add_lipidt" type="submit">Submit</button>
         </form>
     </div>
 
@@ -148,7 +148,7 @@
                 <label>Stress ECG<input type="text" class="form-control" name="secg" size="30" required/></label><br/>
                 <label>Other<input type="text" name="other" class="form-control" size="30" required/></label><br/>
                <label>Phone Number<input type="text" name="phnum" class="form-control" id="phnum5" required/></label><br/>
-                <button class="btn" type="submit">Submit</button>
+                <button class="btn" name="add_cad" type="submit">Submit</button>
             </form>
         </div>
                 <script>
