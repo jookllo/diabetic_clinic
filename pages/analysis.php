@@ -73,7 +73,7 @@
 				<label><input type="checkbox" name="risk[]" value="Foot disease"/>Foot disease</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Coronary Artery Disease"/>Coronary Artery Disease</label><br/>
 				<label><input type="checkbox" name="risk[]" value="Erectile dysfunction"/>Erectile Dysfunction</label><br/>
-				<button class="btn" type="submit">Submit</button>
+				<button class="btn" name="add_risk" type="submit">Submit</button>
 			</form>
 			</div>
 
@@ -91,7 +91,7 @@
 					</select>
 					</label><br/>		
 					<label>Alcohol intake(Units/Week)<input class="form-control" name="alcohol_intake"type="number" placeholder="Units/Week"/></label><br/>		
-					<button class="btn" type="submit">Submit</button>				
+					<button class="btn" name="add_lifechoices" type="submit">Submit</button>				
 				</form>			
 			</div>
 
@@ -121,7 +121,7 @@
 					
 					<label>Date:<input class="form-control" name="date"type="date"/></label><br>
 					
-					<button class="btn"type="submit">Submit</button>				
+					<button class="btn"name="add_self"type="submit">Submit</button>				
 				</form>			
 			</div>
 		
@@ -147,7 +147,7 @@
 					
 					<label><b>DM therapy/CV agents</b><input class="form-control" type="text" name="dmtherapy" /></label><br/>
 					
-					<button class="btn" type="submit">Submit</button>				
+					<button class="btn" name="add_visit" type="submit">Submit</button>				
 				</form>			
 			</div>	
 				

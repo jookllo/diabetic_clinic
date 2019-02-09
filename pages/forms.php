@@ -47,6 +47,7 @@
                             </div>
                             <h3>Select Patient ID:</h3>
                             <form method="get" action="forms_db.php">
+<<<<<<< HEAD
              <?php
                    require "functions/conn.php";
                     
@@ -74,10 +75,23 @@
 
                     echo "";
                 ?>
+=======
+                            <?php 
+					include "functions/phoneNumberVisible.php";?>
+>>>>>>> df6d779c5416e854539c3e39d329a15c1b1db52c
             <br/>
                         <button type='submit'>Submit</button>
                                 
                                         </form>
+
+                                        <?php
+                                                require('fpdf/fpdf.php');
+                                                $pdf = new FPDF();
+                                                $pdf->AddPage();
+                                                $pdf->SetFont('Arial','B',16);
+                                                $pdf->Cell(40,10,'Hello World!');
+                                                $pdf->Output();
+                                                ?>
                                 <!-- /.col-lg-12 -->
                             </div>
                             <!-- /.row -->
