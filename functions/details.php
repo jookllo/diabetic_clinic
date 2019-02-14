@@ -16,7 +16,7 @@ include("conn.php");
 ('".$phnum."', '".$name."', '".$diabtype."', '".$dob."','".$dodiag."')";
 $result = $db->query($query);
 if ($result) {
-echo $db->affected_rows." Details inserted into database.";
+echo " Details inserted into database.";
 } else {
 echo "An error has occurred. The Patient was not added.";
 }

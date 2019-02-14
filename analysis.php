@@ -97,7 +97,7 @@
 
 			<button class="accordion">Self Management</button>
 			<div class="panel-body">
-				<form action="functions/management.php" method="post">
+				<form method="post" action="functions/management.php">
 
 				<label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum2"/></label><br/>
 				

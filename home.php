@@ -66,12 +66,12 @@
 			
 			<button class="accordion">Patient details</button>
 			<div class="panel">		
-			<form method="post" class="form-container">
+			<form method="post" action="functions/details.php" id="add-patient">
 				<label>Patient Name:</label>
-        <input class="form-control" type="text" name="pname" id="pname" size="50" required></input><br>
+        <input class="form-control" type="text" name="pname" id="pname" size="50" required><br>
 				
 				<label>Phone Number</label>
-        <input class="form-control" type="number" name="phnum" id="phnum"required/><br/>
+        <input class="form-control" type="number" name="phnum" id="phnum"required><br/>
 				
 				<label>Diabetes Type:</label> 
 					<select id="diabetestype"name="diabetestype" class="form-control">
@@ -81,58 +81,19 @@
 				<br/>
 				
 				<label>Date of Birth</label>
-        <input class="form-control" name="dob" id="dob" type="date"  required/><br/>
+        <input class="form-control" name="dob" id="dob" type="date"  required><br/>
 				
 				<label>Date of Diagnosis</label>
         <input class="form-control" name="dodiag" id="dodiag"type="number"  min="1900" max="2019" required/><br/>
 			
-      <input type="submit" name="add_patient" id="add_patient" value="Save User" class="btn"/>
-        </form>
-		
-			</div>
-				
-      <script type="text/javascript">
-    $(document).ready(function(){   
-      $("#add_patient").click(function(){   
-    
-        var pname = $("#pname").val();
-        var phnum = $("#phnum").val();
-        var diabetestype = $("#diabetestype").val();
-        var dob = $("#dob").val();
-        var dodiag = $("#dodiag").val();
-        console.log("Noted");
-        if(pname==""||phnum==""||diabetestype==""||dob==""||dodiag==""){
-            alert("Fill all the tables kindly");
-            return false;
-        }
+      <input type="submit" value="Add patient"id="add_patient" class="btn"/>
         
-        $.ajax({
-            url: "access.php",
-            data:{
-                add_patientsubmit:1,
-                pname:pname,
-                phnum:phnum,
-                diabetestype:diabetestype,
-                dob:dob,
-                dodiag:dodiag
-            },
-            type:'POST',
-            dataType:'json',
-            success:function(data){
-                if(data.response==1){
-                    alert(message);
-                    return false;
-                }else if(data.response==0){
-                    alert(data.message);
-                }
-            }
-        });
-    });
-  });
-
-
-      </script>	
-<script>
+        </form>
+		</div>
+      <span id="result"></span>
+				
+      <script src="addpatient.js" type="text/javascript"></script>    
+<script type="text/javascript">
 var acc = document.getElementsByClassName("accordion");
 var i;
 
@@ -161,7 +122,7 @@ for (i = 0; i < acc.length; i++) {
     <!-- /#wrapper -->
 
    
-<script type="text/javascript"></script>
+
 </body>
 
 </html>
