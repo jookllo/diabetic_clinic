@@ -70,11 +70,11 @@
             <button class="accordion">Nephropathy</button>
             <div class="panel">     
             <form action="functions/nephropathy.php" method="post" class="form-container">
-                <label>Date<input type="date" name="ndate"  required/></label><br/>
-                <label>ACR<input type="text" name="acr" required/></label><br/>
-                <label>eGFR<input type="text" name="egfr" required></label><br/>
-                <label>Phone Number<input type="text" name="phnum" id="phnum" required/></label><br/>
-                <button type="submit" >Submit</button>
+                <label>Date<input class="form-control" type="date" name="ndate"  required/></label><br/>
+                <label>ACR<input type="text" name="acr" class="form-control" required/></label><br/>
+                <label>eGFR<input type="text" name="egfr" class="form-control" required></label><br/>
+                <label>Phone Number<input type="text" name="phnum" class="form-control" id="phnum" required/></label><br/>
+                <button class="btn" type="submit">Submit</button>
             </form>
             </div>
            
@@ -84,10 +84,10 @@
                 <p>Check feet for lesions and
                 sensation(10g monofilament or 128Hz
                 tuning fork)Check for Pain, ED, GI symptoms</p>
-                <label>Date<input type="date" name="neudate" required></label><br/>
-                <label>Findings<input type="text" name="finds" size="30" required></label><br/>
-                <label>Phone Number<input type="text" name="phnum" id="phnum1" required/></label><br/>
-                <button type="submit">Submit</button>
+                <label>Date<input class="form-control" type="date" name="neudate" required></label><br/>
+                <label>Findings<input type="text" class="form-control" name="finds" size="30" required></label><br/>
+                <label>Phone Number<input type="text" name="phnum" class="form-control" id="phnum1" required/></label><br/>
+                <button class="btn" type="submit">Submit</button>
             </form>
         </div>
 
@@ -96,12 +96,12 @@
             <div class="panel">     
             <form action="functions/retinopathy.php" method="post" class="form-container">
                 <h2>Eye Exam:</h2>
-               <label>Date<input type="date" name="t_date" required></label><br/>
-                <label>Findings<input type="text" name="find" size="30" required/></label><br/>
-                <label>Plan<input type="text" name="plan" size="30" required></label><br/>
-                <label>Ophthalmologist:<input type="text" name="ophth" required></label><br/>
-                <label>Phone Number<input type="text" name="phnum" id="phnum2" required/></label><br/>
-                <button type="submit">Submit</button>
+               <label>Date<input type="date" class="form-control" name="t_date" required></label><br/>
+                <label>Findings<input type="text" name="find" class="form-control" size="30" required/></label><br/>
+                <label>Plan<input type="text" name="plan" class="form-control" size="30" required></label><br/>
+                <label>Ophthalmologist:<input type="text" name="ophth" class="form-control" required></label><br/>
+                <label>Phone Number<input type="text" name="phnum" class="form-control" id="phnum2" required/></label><br/>
+                <button class="btn" type="submit">Submit</button>
                     </form>
                 </div>
 
@@ -112,7 +112,7 @@
                 
             <label>
                 <p>Statin if > 40yrs or 30yrs with DM > 15yrs or end organ</p>
-                <select name="statin">
+                <select class="form-control" name="statin">
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                     </select>
@@ -120,35 +120,35 @@
             <br/>
             <label>
                 <p>ACEi/ARB if >55yrs OR end organ damage (even in absence of HTN)</p>
-                <select name="statin2">
+                <select class="form-control" name="statin2">
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                     </select><br/>
              </label><br/>
-            <label>Phone Number<input type="text" name="phnum" id="phnum3" required/></label><br/>
-            <button type="submit">Submit</button>
+            <label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum3" required/></label><br/>
+            <button class="btn" type="submit">Submit</button>
             </form>
         </div>
 
          <button class="accordion">Lipid Targets:</button>
             <div class="panel">     
             <form action="functions/lipids.php" method="post" class="form-container">
-                <label>Date<input type="date" name="l_date" required/></label><br/>
-                <label>Lipid Levels<input type="text" name="lipids" size="30" required/></label><br/>
-                <label>Plans<input type="text" name="plans" required/></label><br/>
-                <label>Phone Number<input type="text" name="phnum" id="phnum4" required/></label><br/>
-            <button type="submit">Submit</button>
+                <label>Date<input class="form-control" type="date" name="l_date" required/></label><br/>
+                <label>Lipid Levels<input class="form-control" type="text" name="lipids" size="30" required/></label><br/>
+                <label>Plans<input class="form-control" type="text" name="plans" required/></label><br/>
+                <label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum4" required/></label><br/>
+            <button class="btn" type="submit">Submit</button>
         </form>
     </div>
 
       <button class="accordion">CAD assessment</button>
             <div class="panel">     
             <form action="functions/cad.php" method="post" class="form-container">
-                <label>ECG<input type="text" name="ecg" size="30" required/></label><br/>
-                <label>Stress ECG<input type="text" name="secg" size="30" required/></label><br/>
-                <label>Other<input type="text" name="other" size="30" required/></label><br/>
-               <label>Phone Number<input type="text" name="phnum" id="phnum5" required/></label><br/>
-                <button type="submit">Submit</button>
+                <label>ECG<input class="form-control" type="text" name="ecg" size="30" required/></label><br/>
+                <label>Stress ECG<input class="form-control" type="text" name="secg" size="30" required/></label><br/>
+                <label>Other<input class="form-control" type="text" name="other" size="30" required/></label><br/>
+               <label>Phone Number<input class="form-control" type="text" name="phnum" id="phnum5" required/></label><br/>
+                <button class="btn" type="submit">Submit</button>
             </form>
         </div>
                 <script>

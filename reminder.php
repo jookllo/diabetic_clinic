@@ -46,15 +46,15 @@
                         <h1 class="page-header">Patient Reminder</h1>
                         <form method="get" action="functions/remind.php">
                             
-                            <label>Patient Name<input type="text" name="pname" size="30" /></label><br/>
+                            <label>Patient Name<input class="form-control" type="text" name="pname" size="30" /></label><br/>
 
-                            <label>KS Number<input type="number" name="ksnum"></label>
+                            <label>Phone Number<?php include"functions/phoneNumberVisible.php";?></label><br/>
 
-                            <label>Next Visit<input type="date" name="vdate"/></label><br/>
+                            <label>Next Visit<input class="form-control" type="date" name="vdate"/></label><br/>
 
-                            <label>Visit details<input type="text" name="vdets" size="30"/></label><br/>
+                            <label>Visit details<input class="form-control" type="text" name="vdets" size="30"/></label><br/>
 
-                            <button type="submit">Add Visit</button>
+                            <button class="btn" type="submit">Add Visit</button>
                         </form>
                     </div>
                     <!-- /.col-lg-12 -->
