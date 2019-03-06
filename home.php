@@ -66,7 +66,10 @@
 			
 			<button class="accordion">Patient details</button>
 			<div class="panel">		
-			<form method="post" action="functions/details.php" id="add-patient">
+      
+        <h2><span class="label label-info" id="result"></span></h2>
+   
+			<form id="patientForm" action="functions/details.php" method="post">
 				<label>Patient Name:</label>
         <input class="form-control" type="text" name="pname" id="pname" size="50" required><br>
 				
@@ -86,28 +89,29 @@
 				<label>Date of Diagnosis</label>
         <input class="form-control" name="dodiag" id="dodiag"type="number"  min="1900" max="2019" required/><br/>
 			
-      <input type="submit" value="Add patient"id="add_patient" class="btn"/>
+      <button type="submit" id="sub" class="btn">Submit</button>
         
         </form>
 		</div>
-      <span id="result"></span>
+    
+      
 				
       <script src="addpatient.js" type="text/javascript"></script>    
-<script type="text/javascript">
-var acc = document.getElementsByClassName("accordion");
-var i;
+      <script type="text/javascript">
+                var acc = document.getElementsByClassName("accordion");
+                var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
+                  for (i = 0; i < acc.length; i++) {
+                    acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                          if (panel.style.display === "block") {
+                                panel.style.display = "none";
+                          } else {
+                              panel.style.display = "block";
+                            }
+                          });
+                        }
 </script>
 
                 </div>

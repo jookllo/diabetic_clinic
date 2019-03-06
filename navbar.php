@@ -39,7 +39,11 @@
                         </li>
 
                         <li>
-                            <a href="tables.php"><i class="fa fa-edit fa-fw"></i>Diabetic Complication Screening</a>
+                            <a href="analysis.php"><i class="fa fa-edit fa-fw"></i>Patient Analysis</a>
+                        </li>
+
+                        <li>
+                            <a href="tests.php"><i class="fa fa-edit fa-fw"></i>Diabetic Complication Screening</a>
                         </li>
 
                          <li>
