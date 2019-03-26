@@ -12,18 +12,14 @@
 		$hpgl = $_POST['hpgl'];
 		$dm = $_POST['dmtherapy'];
 
-		if(!$phnum||!$date||!$bp||!$weightp||!$bmi||!$hba||!$notes||!$hpgl||!$dm){
-			echo "Incomplete form input<br/>"."Fill in completely";
-		}
-
-		$query = "INSERT INTO visits(phone_num,bp,weight_p,bmi,hba1c,notes,hypo_gly,dm_therapy,visit_date)
-		 VALUES ('".$phnum."','".$bp."','".$weightp."','".$bmi."','".$hba."','".$notes."','".$hpgl."','".$dm."','".$date."')";
-
-
-		$result = $db->query($query);
-		if ($result) {
-		echo $db->affected_rows." Details inserted into database.";
-		} else {
-		echo "An error has occurred. The details were not added.";
-		}
-		$db->close();?>
+		if (mysqli_query($db,"INSERT INTO visits(phone_num,bp,weight_p,bmi,hba1c,notes,hypo_gly,dm_therapy,visit_date)
+		VALUES ('$phnum','$bp','$weightp','$bmi','$hba','$notes','$hpgl','$dm','$date')")) 
+		echo "<div class='alert alert-success alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                                Details inserted into database.</div>";
+		 else 
+		echo "<div class='alert alert-danger alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                               An error has occurred. The Patient was not added.</div>";
+		
+		?>

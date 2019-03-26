@@ -1,19 +1,17 @@
 <?php
-	include("conn.php");
-			
-			$phonenum = $_POST['phnum'];
-			$risk = implode(',', $_POST['risk']);
-
-			if(!$phonenum || !$risk){
-				echo "Incomplete form input<br/>"."Fill in completely";
-			}
-		$query = "INSERT INTO risk_factors(phone_num,risk_factor) VALUES ('".$phonenum."', '".$risk."')";	
-		$result = $db->query($query);
-if ($result) {
-echo $db->affected_rows." Details inserted into database.";
-} else {
-echo "An error has occurred. The details were not added.";
-}
-$db->close();
-	
-?>
+				include("conn.php");
+						
+				if(isset($_POST['sub1'])){
+						$phonenum = $_POST['phnum'];
+						$risk = implode(',', $_POST['risk']);
+					
+					if (mysqli_query($db,"INSERT INTO risk_factors(phone_num,risk_factor) 
+							VALUES ('$phonenum', '$risk')"))
+						echo "<div class='alert alert-success alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                                Details inserted into database.</div>";
+							else 
+						echo "<div class='alert alert-danger alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                               An error has occurred. The Patient was not added.</div>";}
+		?>

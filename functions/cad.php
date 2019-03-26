@@ -5,17 +5,13 @@
 			$secg = $_POST['secg'];
 			$other = $_POST['other'];
 			$phnum = $_POST['phnum'];
-
-			if(!$ecg||!$secg||!$other||!$phnum){
-				echo "Incomplete form input<br/>"."Fill in completely";
-			}
-
-			$query = "INSERT INTO cad(phone_num,ecg,secg,other)VALUES ('".$phnum."','".$ecg."','".$secg."','".$other."')";
-			$result = $db->query($query);
-		if ($result) {
-					echo $db->affected_rows." Details inserted into database.";
-				} else {
-			echo "An error has occurred. The details were not added.";
-				}
-			$db->close();
+			
+		if (mysqli_query($db,"INSERT INTO cad(phone_num,ecg,secg,other)VALUES ('$phnum','$ecg','$secg','$other')"))
+					echo "<div class='alert alert-success alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                                Details inserted into database.</div>";
+				 else 
+			echo "<div class='alert alert-danger alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                               An error has occurred. The Patient was not added.</div>";
 ?>

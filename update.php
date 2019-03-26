@@ -43,7 +43,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add or Edit Patient Deatils</h1>
+                        <h1 class="page-header">Edit or Delete Patient Deatils</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                
@@ -60,18 +60,22 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
+                                        <th>Phone Number</th>
                                         <th>Diabetes Type</th>
                                         <th>Date of Birth</th>
                                         <th>Date of Diagnosis</th>
-                                        <th>Action</th>
+                                        <th colspan="2">Action</th>
                                     </tr>
                                 </thead>
                                 <tr>
-                                    <th><input class='form-control' type='text' name='pname' value='<?php echo $pname?>'  placeholder='Patient name'required></th>
-                                    <th><input  class='form-control' name='diabetestype' value='<?php echo $diabetes_type?>' placeholder='Diabetes type'required></th>
-                                    <th><input  class='form-control' type='date' name='dob' value='<?php echo $dob?>' placeholder='Date of Birth'required></th>
-                                    <th><input class='form-control' type='text' value="<?php echo $dodiagnosis?>" name='dodiag' size='50' placeholder='Date of Diagnosis'required></th>
-                                    <th><a href='functions/update.php?edit=<?php echo $row[p_id];?>' class='btn btn-primary'>Update</a>
+
+                                    <th><input class='form-control' type='text' name='pname' value=''  placeholder='Patient name'required></th>
+                                    <th><input class='form-control' type='text' name='phnum' value=''  placeholder='Phone number'required></th>
+                                    <th><input  class='form-control' name='diabetestype' value='' placeholder='Diabetes type'required></th>
+                                    <th><input  class='form-control' type='date' name='dob' value='' placeholder='Date of Birth'required></th>
+                                    <th><input class='form-control' type='text' value="" name='dodiag' size='50' placeholder='Date of Diagnosis'required></th>
+                                    <th colspan="2"><a href='' class='btn btn-primary'>Update Record</a></th>
+                                        
                                 </tr>
 
                             <?php 
@@ -82,10 +86,12 @@
                                     
                                         echo"<tr>";
                                             echo"<th>".$row['patient_num']."</th>";
+                                            echo"<th>".$row['phone_num']."</th>";
                                             echo"<th>".$row['diabetes_type']."</th>";
                                             echo"<th>".$row['dob']."</th>";
                                             echo"<th>".$row['dodiagnosis']."</th>";
                                             echo"<th><a href='functions/update.php?edit=<?php echo $row[p_id];?>' class='btn btn-primary'>Edit</a>";
+                                            echo "<th><a href='' class='btn btn-danger'>Delete</a></th>";
 
                                         echo"</tr>";
                                     echo"</tbody>";

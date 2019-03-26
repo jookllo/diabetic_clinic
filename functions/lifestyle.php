@@ -1,14 +1,20 @@
 <?php
 	include("conn.php");
-	
+		if ($_POST['submit']) {
+			# code...
+		
 			$phnum = $_POST['phnum'];
 			$smoking = $_POST['smoking'];
 			$alcoholIntake = $_POST['alcohol_intake'];
 
 		if (mysqli_query($db,"INSERT INTO lifestyle_changes(phone_num,smoking,alcohol_intake)
 			 VALUES ('$phnum', '$smoking','$alcoholIntake')")) 
-				echo $db->affected_rows." Detail inserted into database.";
+				echo "<div class='alert alert-success alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                                Details inserted into database.</div>";
 				 else
-				echo "An error has occurred. The details were not added.";
-					
+				echo "<div class='alert alert-danger alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                               An error has occurred. The Patient was not added.</div>";
+			}		
 				?>

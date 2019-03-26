@@ -5,7 +5,7 @@ include "conn.php";
 $pname = '';
 $dob = '';
 $diabetes_type= '';
-$dodiagnosis = ''; 
+$dodiagnosis = '';   
 
 if(isset($_GET['edit'])){
     $id = $_GET['edit'];

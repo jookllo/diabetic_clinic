@@ -53,9 +53,9 @@ table.GeneratedTable thead {
     
     <tr></tr>
     <tr>
-      <td colspan="3"></td>
+      <td colspan="4"></td>
       <td>Height:</td>
-      <td colspan="3">Weight Target:</td>
+      <td colspan="2">Weight Target:</td>
       <td>Target BMI:</td>
     </tr>
     <tr>
@@ -120,49 +120,45 @@ table.GeneratedTable thead {
       <td></td>
       <td></td>
       <td></td>
-      <td>Cell</td>
-      <td>Cell</td>
+      <td>Date:</td>
+      <td>Findings:</td>
       
     </tr>
     <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td colspan="2">Date:</td>
+      <td>Findings:</td>
+      <td colspan="2">Plan:</td>
+     </tr>
+    <tr>
+      <td colspan="6"></td>
+      <td colspan="2">Ophthalmologist:</td>
     </tr>
     <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
+      <th colspan="3">Vascular protection</th>
+      <th colspan="3">Lipid Targets:</th>
+      <th colspan="2">CAD assessment</th>
     </tr>
     <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
+      <td colspan="3">Statin if >40yrs or 30yrs with DM >15yrs or
+          end organ damage:</td>
+      <th>Date</th>
+      <th>Lipid level</th>
+      <th>Plan</th>
+      <td colspan="2">ECG:</td>
     </tr>
     <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
+      <td colspan="3">ACEi/ARB if >55yrs OR end organ damage:</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td colspan="2">Stress ECG:</td>
     </tr>
     <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
+      <td colspan="6"></td>
+      <td colspan="2">Other:</td>
     </tr>
   </tbody>
 </table>

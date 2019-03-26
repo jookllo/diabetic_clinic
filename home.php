@@ -57,62 +57,49 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Patient Details</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                    
+                   
+                  <br />
+                  <br /> 
 				
 			
-			<button class="accordion">Patient details</button>
-			<div class="panel">		
-      
-        <h2><span class="label label-info" id="result"></span></h2>
-   
-			<form id="patientForm" action="functions/details.php" method="post">
-				<label>Patient Name:</label>
+			<div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Patient details
+                        </div>
+                        <div class="panel-body">
+                            <form id="patientForm" action="functions/details.php" method="post">
+                <label>Patient Name:</label>
         <input class="form-control" type="text" name="pname" id="pname" size="50" required><br>
-				
-				<label>Phone Number</label>
+                
+                <label>Phone Number</label>
         <input class="form-control" type="number" name="phnum" id="phnum"required><br/>
-				
-				<label>Diabetes Type:</label> 
-					<select id="diabetestype"name="diabetestype" class="form-control">
-						<option value="Type 1">Type 1</option>
-						<option value="Type 2">Type 2</option>
-					</select>
-				<br/>
-				
-				<label>Date of Birth</label>
+                
+                <label>Diabetes Type:</label> 
+                    <select id="diabetestype"name="diabetestype" class="form-control">
+                        <option value="Type 1">Type 1</option>
+                        <option value="Type 2">Type 2</option>
+                    </select>
+                <br/>
+                
+                <label>Date of Birth</label>
         <input class="form-control" name="dob" id="dob" type="date"  required><br/>
-				
-				<label>Date of Diagnosis</label>
+                
+                <label>Date of Diagnosis</label>
         <input class="form-control" name="dodiag" id="dodiag"type="number"  min="1900" max="2019" required/><br/>
-			
+            
       <button type="submit" id="sub" class="btn">Submit</button>
         
         </form>
-		</div>
+                        </div>
+                        <div class="panel-footer">
+                            Panel Footer
+                        </div>
+                    </div>
     
       
 				
       <script src="addpatient.js" type="text/javascript"></script>    
-      <script type="text/javascript">
-                var acc = document.getElementsByClassName("accordion");
-                var i;
-
-                  for (i = 0; i < acc.length; i++) {
-                    acc[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                          if (panel.style.display === "block") {
-                                panel.style.display = "none";
-                          } else {
-                              panel.style.display = "block";
-                            }
-                          });
-                        }
-</script>
+      
 
                 </div>
                 <!-- /.row -->
