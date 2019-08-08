@@ -67,40 +67,77 @@
                             Patient details
                         </div>
                         <div class="panel-body">
-                            <form id="patientForm" action="functions/details.php" method="post">
-                <label>Patient Name:</label>
-        <input class="form-control" type="text" name="pname" id="pname" size="50" required><br>
-                
-                <label>Phone Number</label>
-        <input class="form-control" type="number" name="phnum" id="phnum"required><br/>
-                
-                <label>Diabetes Type:</label> 
-                    <select id="diabetestype"name="diabetestype" class="form-control">
-                        <option value="Type 1">Type 1</option>
-                        <option value="Type 2">Type 2</option>
-                    </select>
-                <br/>
-                
-                <label>Date of Birth</label>
-        <input class="form-control" name="dob" id="dob" type="date"  required><br/>
-                
-                <label>Date of Diagnosis</label>
-        <input class="form-control" name="dodiag" id="dodiag"type="number"  min="1900" max="2019" required/><br/>
+                            <form role="form" method="post">
+                                 <label>Patient Name:</label>
+                                <input class="form-control" type="text" name="pname" id="pname" size="50" required><br>
+                                
+                                <label>Phone Number</label>
+                                <input class="form-control" type="number" name="phnum" id="phnum"required><br/>
+                                
+                                <label>Diabetes Type:</label> 
+                                    <select id="diabetestype"name="diabetestype" class="form-control">
+                                        <option value="Type 1">Type 1</option>
+                                        <option value="Type 2">Type 2</option>
+                                    </select>
+                                <br/>
+                                
+                                <label>Date of Birth</label>
+                                <input class="form-control" name="dob" id="dob" type="date"  required><br/>
+                                
+                                <label>Date of Diagnosis</label>
+                                <input class="form-control" name="dodiag" id="dodiag"type="number"  min="1880" max="2019" required/><br/>
+
+                                <input type="hidden" class="form-control" name="addpatient_submit" value="addpatient_submit"  min="1880" max="2019" required/><br/>
             
-      <button type="submit" id="sub" class="btn">Submit</button>
+      <button type="button" name="sub" id="sub" class="btn">Submit</button>
+        
         
         </form>
                         </div>
                         <div class="panel-footer">
-                            Panel Footer
+                            <?php echo"Today is " . date("d-m-y")?>
                         </div>
                     </div>
-    
-      
-				
-      <script src="addpatient.js" type="text/javascript"></script>    
-      
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sub").click(function(){
+                //alert(1);
+                var Patient_name = $("#pname").val();
+                var phonenumber = $("#phnum").val();
+                var diabetestype = $("#diabetestype").val();
+                var dob = $("#dob").val();
+                var dodiagonsis = $("#dodiag").val();
 
+                if(Patient_name==" "||phonenumber==" "||diabetestype==" "||dob==" "||dodiagonsis==" "){
+                    alert("Fill in all fields");
+                    return false;
+                }
+                $.ajax({
+                    url: 'savePatients.php',
+                    data: {
+                        add_patient:1,
+                        pname:Patient_name,
+                        phnum:phonenumber,
+                        diabetestype:diabetestype,
+                        dob:dob,
+                        dodiag:dodiagonsis,
+                        addpatient_submit:'addpatient_submit'
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    success:function(data){
+                        if(data.message=='1'){
+                            alert("Successfully saved");
+                            return false;
+                        }else if(data.message=='0'){
+                            alert("Error adding patient");
+
+                        }
+                    }
+                });
+             })
+           });
+    </script>
                 </div>
                 <!-- /.row -->
             </div>

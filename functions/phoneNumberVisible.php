@@ -3,7 +3,7 @@
    
 include "conn.php";
 
-$sql = "SELECT phone_num, patient_num FROM patient_details";
+$sql = "SELECT p_id FROM patient_details WHERE status= '0'";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
 	 echo " <select class='form-control' name='pa_id' id='dropbox' onchange='copyValue()'>";
 	 echo"<option></option>"; 
              while($row = $result->fetch_assoc()){
-                echo "<option value='".$row['phone_num']."'>".$row['phone_num']."</option>";
+                echo "<option value='".$row['p_id']."'>".$row['p_id']."</option>";
                
              }
              //show ksnum list as options

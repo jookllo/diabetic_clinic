@@ -30,24 +30,25 @@
                                 <li>
                                     <a href="update.php">Delete or Edit Patient Records </a>
                                 </li>
-                                <li>
-                                    
-                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        </li>
-
+                       
                         <li>
-                            <a href="analysis.php"><i class="fa fa-edit fa-fw"></i>Patient Analysis</a>
+                           <a href="analysis.php"><i class="fa fa-edit fa-fw"></i>Patient analysis</a>         
                         </li>
 
                         <li>
                             <a href="tests.php"><i class="fa fa-edit fa-fw"></i>Diabetic Complication Screening</a>
                         </li>
 
-                         <li>
-                            <a href="reminder.php"><i class="fa fa-edit fa-fw"></i>Patient Reminder</a>
+                        <li>
+                            <a href="createappointment.php"><i class="fa fa-edit fa-fw"></i>Book Appoinment</a>
+                        </li>
+
+
+                        <li>
+                            <a href="calender.php"><i class="fa fa-table fa-fw"></i>Calender</a>
                         </li>
                         
                         <li>

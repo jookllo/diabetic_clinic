@@ -11,6 +11,17 @@
 
     <title>Update or Edit Details</title>
 
+     <!-- jQuery -->
+    <script src=" vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src=" vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src=" vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src=" dist/js/sb-admin-2.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href=" vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -56,9 +67,29 @@
                                 </span>
                             </div>
                             <br/>
+                            <script type="text/javascript">
+               function copyValue() {
+    var patient_id = document.getElementById('p_id').value;
+    var name = document.getElementById('patient_name').value;
+    var phone_num = document.getElementById('phone_num').value;
+    var diabetes_type = document.getElementById('diabetes_type').value;
+    var dob = document.getElementById('dod').value;
+    var dodiagnosis = document.getElementById('dodiagnosis').value;
+    document.getElementById('edit_pid').value = patient_id;
+    document.getElementById('edit_pname').value = name;
+    document.getElementById('edit_diabetestype').value = phone_num;
+    document.getElementById('edit_phnum').value = diabetes_type;
+    document.getElementById('edit_dob').value = dob;
+    document.getElementById('edit_dodiag').value = dodiagnosis;
+    } 
+                            
+                                
+                            </script>
+                             
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>Patient ID</th>
                                         <th>Name</th>
                                         <th>Phone Number</th>
                                         <th>Diabetes Type</th>
@@ -68,30 +99,31 @@
                                     </tr>
                                 </thead>
                                 <tr>
-
-                                    <th><input class='form-control' type='text' name='pname' value=''  placeholder='Patient name'required></th>
-                                    <th><input class='form-control' type='text' name='phnum' value=''  placeholder='Phone number'required></th>
-                                    <th><input  class='form-control' name='diabetestype' value='' placeholder='Diabetes type'required></th>
-                                    <th><input  class='form-control' type='date' name='dob' value='' placeholder='Date of Birth'required></th>
-                                    <th><input class='form-control' type='text' value="" name='dodiag' size='50' placeholder='Date of Diagnosis'required></th>
-                                    <th colspan="2"><a href='' class='btn btn-primary'>Update Record</a></th>
-                                        
+                                    <th></th>
+                                    <th><input class='form-control' type='text' id='edit_pname' value=''  placeholder='Patient name'required></th>
+                                    <th><input class='form-control' type='text' id='edit_phnum' value=''  placeholder='Phone number'required></th>
+                                    <th><input  class='form-control' id='edit_diabetestype' value='' placeholder='Diabetes type'required></th>
+                                    <th><input  class='form-control' type='date' id='edit_dob' value='' placeholder='Date of Birth'required></th>
+                                    <th><input class='form-control' type='text' value="" id='edit_dodiag' size='50' placeholder='Date of Diagnosis'required></th>
+                                    <th colspan="2"><button type="button" id='update' class='btn btn-primary'>Update Record</button></th>
+                                    <input type="hidden" id="patient_id">    
                                 </tr>
 
                             <?php 
                                 include"functions/conn.php";
-                                $result = mysqli_query($db,"select * from patient_details");                          
+                                $result = mysqli_query($db,"select * from patient_details where `status`='0'");                          
                                 while($row= mysqli_fetch_array($result)){
                                    echo" <tbody>";
                                     
                                         echo"<tr>";
-                                            echo"<th>".$row['patient_num']."</th>";
-                                            echo"<th>".$row['phone_num']."</th>";
-                                            echo"<th>".$row['diabetes_type']."</th>";
-                                            echo"<th>".$row['dob']."</th>";
-                                            echo"<th>".$row['dodiagnosis']."</th>";
-                                            echo"<th><a href='functions/update.php?edit=<?php echo $row[p_id];?>' class='btn btn-primary'>Edit</a>";
-                                            echo "<th><a href='' class='btn btn-danger'>Delete</a></th>";
+                                            echo"<th class='PID' id='p_id'>".$row['p_id']."</th>";
+                                            echo"<th id='patient_name'>".$row['patient_name']."</th>";
+                                            echo"<th id='phone_num'>".$row['phone_num']."</th>";
+                                            echo"<th id='diabetes_type'>".$row['diabetes_type']."</th>";
+                                            echo"<th id='dod'>".$row['dod']."</th>";
+                                            echo"<th id='dodiagnosis'>".$row['dodiagnosis']."</th>";
+                                            echo"<th><button  data-pid=".$row['p_id']." type='submit' class='btn btn-primary edit'>Edit</button></th>";
+                                            echo "<th><button data-pid=".$row['p_id']." class='btn btn-danger delete'>Delete</button></th>";
 
                                         echo"</tr>";
                                     echo"</tbody>";
@@ -103,13 +135,48 @@
                                             
                 </div>
                 <!-- /.row -->
-                <?php
-                                 echo"";
-                                 echo"";
-                                 echo"";                                
-                                 echo"";?>
-                                 
-            </div>
+                <script type="text/javascript">
+                     $(document).ready(function() {
+                        $(".edit").click(function(){
+                            var id = $(this).attr('data-pid');
+                             $('#patient_id').val(id);
+                            $.getJSON('getPatientRecord.php?id='+id+'&action=getdata',function(resp){
+                                $('#edit_pname').val(resp.patient_name);
+                                $('#edit_phnum').val(resp.phone_num);
+                                $('#edit_diabetestype').val(resp.diabetes_type);
+                                $('#edit_dob').val(resp.dod);
+                                $('#edit_dodiag').val(resp.dodiagnosis);
+                               });
+                        });
+
+                         $(".delete").click(function(){
+                            var id = $(this).attr('data-pid');                            
+                            $.getJSON('updatePatientRecord.php?id='+id+'&action=delete',function(resp){
+                                alert('Patient successfully deactivated');
+                                 window.location.href="";
+                               });
+                        })
+
+
+                         $("#update").click(function(){
+                            var id = $('#patient_id').val();
+                            data={
+                                patient_name:$('#edit_pname').val(),
+                                phone_num:$('#edit_phnum').val(),
+                                diabetes_type:$('#edit_diabetestype').val(),
+                                dod:$('#edit_dob').val(),
+                                dodiagnosis:$('#edit_dodiag').val()
+                            }
+
+                            $.post('updatePatientRecord.php?id='+id+'&action=update',data,function(resp){
+                                
+                               }).done(function(){
+                                window.location.href="";
+                               });
+                        })
+                     });
+                </script>
+               </div>
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
@@ -117,17 +184,7 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src=" vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src=" vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src=" vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src=" dist/js/sb-admin-2.js"></script>
+   
 
 </body>
 

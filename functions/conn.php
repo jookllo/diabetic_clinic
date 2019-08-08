@@ -1,9 +1,9 @@
 <?php
-	$servername = "localhost";
+		$hostname = "localhost";
 		$username = "root";
 		$password = "";
-		$dbname = "pdets";
-		$db = mysqli_connect($servername, $username, $password, $dbname);
+		$dbname = "pdets_1";
+		$db = mysqli_connect($hostname, $username, $password, $dbname);
 			if (mysqli_connect_errno()) 
 			{
 			echo 'Error: Could not connect to database. please try again';

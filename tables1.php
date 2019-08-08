@@ -63,7 +63,8 @@ table.GeneratedTable thead {
       <td colspan="4">Weight Management Discussed:</td>
     </tr>
     <tr>
-      <td colspan="4">Smoking:</td>
+      <td colspan="2">Smoking:</td>
+      <td colspan="2">Cessation discussed:</td>
       <td colspan="4">Education on complicaitons:</td>
     </tr>
     <tr>

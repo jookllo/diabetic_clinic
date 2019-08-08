@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "C:\\wamp64\\www\\api"
+		},
+		{
+			"path": "C:\\wamp64\\www\\CodeIgniter-3.1.9\\application\\cryptostocks"
+		},
+		{
+			"path": "C:\\wamp64\\www\\CodeIgniter-3.1.9\\application\\school_system"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.autoSave": "onWindowChange",
+		"php.validate.executablePath": "C:\\xampp5\\php\\php.exe"
+	}
+}
