@@ -1,3 +1,2 @@
-# diabetic_clinic
-diabetic system clinic
-This is for use within a hospitals clinic for the diabetic patients visiting the hospital
+# Diabetic CLinic system
+This is for use within a hospital. Is it a simple CRUD application with a pdf output for the details. This will allow for the patient to have their details output.
